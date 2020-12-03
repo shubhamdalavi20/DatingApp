@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { User } from './_models/user';
+import { AccountService } from './_services/account.service';
 
 @Component({
   selector: 'app-root',
@@ -10,21 +12,19 @@ import { environment } from 'src/environments/environment';
 export class AppComponent implements OnInit {
   title = 'The Dating app';
   users:any;
-  baseUrl = environment.apiUrl;
   
-  constructor(private http: HttpClient, private ref: ChangeDetectorRef){
+  
+  constructor( private accountService:AccountService){
 
   }
   ngOnInit(){
-    this.getUsers();
+    this.setCurrentUser();
   }
-  getUsers()
+
+  setCurrentUser()
   {
-    this.http.get(this.baseUrl+'users').subscribe(response => {
-      this.users=response;
-      this.ref.detectChanges();
-    }, error=>{
-      console.log(error)
-    })
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    this.accountService.setCurrentUser(user)
   }
+  
 }

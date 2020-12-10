@@ -1,3 +1,4 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "bitbucket-pull-requests.serverURL": "https://shubhamdalavi20@bitbucket.org/tplabs/shubham.dalavi.git"
 }

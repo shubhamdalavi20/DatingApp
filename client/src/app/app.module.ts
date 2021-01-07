@@ -4,14 +4,11 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import{HttpClientModule, HTTP_INTERCEPTORS}from '@angular/common/http'
-import { from } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
-import { FormsModule } from "@angular/forms";
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { ToastrModule } from "ngx-toastr";
 import { SharedModule } from './_modules/shared.module';
 import { ErrorInterceptor } from './errors/_interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
@@ -27,6 +24,8 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { DateInputComponent } from './_forms/date-input/date-input.component';
 
 @NgModule({
   
@@ -46,6 +45,8 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
     MemberCardComponent,
     MemberEditComponent,
     PhotoEditorComponent,
+    TextInputComponent,
+    DateInputComponent,
     
   ],
   imports: [
@@ -54,6 +55,7 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     CommonModule,
     NgxSpinnerModule
